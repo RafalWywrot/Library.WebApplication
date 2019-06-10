@@ -12,8 +12,7 @@ namespace Library.WebApplication.Controllers
     {
         public ActionResult Index()
         {
-            var grades = new ApiClient().GetData<StudentViewModel>("home/index");
-            return View(grades);
+            return View();
         }
         public ActionResult About()
         {

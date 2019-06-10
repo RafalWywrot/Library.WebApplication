@@ -17,7 +17,7 @@ namespace Library.WebApplication.Helpers
         /// Method used to connect with API and get records from database 
         /// </summary>
         /// <typeparam name="T">Generic class</typeparam>
-        /// <param name="url">http://localhost:62930/api/</param>
+        /// <param name="url">api url</param>
         /// <returns>result and data</returns>
         public T GetData<T>(string url) where T : new()
         {
@@ -39,7 +39,7 @@ namespace Library.WebApplication.Helpers
         /// Method used to connect with Api and send information to save in database
         /// </summary>
         /// <typeparam name="T">generic class</typeparam>
-        /// <param name="url">http://localhost:62930/api/</param>
+        /// <param name="url">api url</param>
         /// <returns>result of successful</returns>
         public bool PostData<T>(string url, T obj) where T : new()
         {
