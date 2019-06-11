@@ -259,3 +259,8 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+Library\.WebApplication/Views/Artist/desktop\.ini
+
+Library\.WebApplication/Views/Category/desktop\.ini
+
+Library\.WebApplication/Views/PublishHouse/desktop\.ini
