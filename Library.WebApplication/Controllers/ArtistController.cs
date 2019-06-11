@@ -36,9 +36,9 @@ namespace Library.WebApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(ArtistViewModel teacher)
+        public ActionResult Edit(ArtistViewModel artist)
         {
-            new ApiClient().PostData<ArtistViewModel>("artist/Update", teacher);
+            new ApiClient().PostData<ArtistViewModel>("artist/Update", artist);
             return RedirectToAction("Index");
         }
 
