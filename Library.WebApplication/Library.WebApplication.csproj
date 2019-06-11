@@ -198,6 +198,9 @@
     <Content Include="Views\PublishHouse\Index.cshtml" />
     <Content Include="Views\PublishHouse\Edit.cshtml" />
     <Content Include="Views\PublishHouse\Add.cshtml" />
+    <Content Include="Views\Book\Index.cshtml" />
+    <Content Include="Views\Book\Add.cshtml" />
+    <Content Include="Views\Book\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
