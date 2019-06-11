@@ -151,7 +151,6 @@
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\DeleteById.cs" />
     <Compile Include="Models\PublishHouseViewModel.cs" />
-    <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

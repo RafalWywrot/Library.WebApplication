@@ -9,6 +9,7 @@ namespace Library.WebApplication.Models
     public class CategoryViewModel
     {
         public int Id { get; set; }
+        [Required]
         [Display(Name = "Nazwa")]
         public string Name { get; set; }
     }

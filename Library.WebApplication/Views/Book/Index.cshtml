@@ -2,63 +2,75 @@
 @{
     ViewBag.Title = "Książki";
 }
-<h2>Książki</h2>
 
-<div class="btn-group" role="group">
+<div class="btn-group col mt-10" role="group">
     <button type="button" onclick="location.href='@Url.Action("Add", "Book")'" class="btn btn-success btn-lg" aria-haspopup="true" aria-expanded="false">
         @Html.Name("Dodaj książkę")
         <span class="glyphicon glyphicon-plus" style="padding-left:10px;"></span>
     </button>
 </div>
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PageCount)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year)
-        </th>
-        <th>
-            @Html.DisplayName("Wydawnictwo")
-        </th>
-        <th>
-            @Html.DisplayName("Autor")
-        </th>
-        <th>
-            @Html.DisplayName("Kategoria")
-        </th>
-        <th></th>
-    </tr>
+<div class="row mt-20">
+    <div class="col-md-12">
+        <table class="table table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PageCount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Year)
+                </th>
+                <th>
+                    @Html.DisplayName("Wydawnictwo")
+                </th>
+                <th>
+                    @Html.DisplayName("Autor")
+                </th>
+                <th>
+                    @Html.DisplayName("Kategoria")
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PageCount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Year)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PublishHouse.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Artist.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PageCount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PublishHouse.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artist.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Edit", "Book", new { id = item.Id }, FormMethod.Get, new { @class = "" }))
+                        {
+                            <input type="submit" value="Edytuj" class="btn btn-default" />
+                        }
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "Book", new { id = item.Id }, FormMethod.Post, new { @class = "" }))
+                        {
+                            <input type="submit" value="Usuń" class="btn btn-danger" />
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

@@ -65,7 +65,7 @@ namespace Library.WebApplication.Controllers
             var artists = new ApiClient().GetData<List<ArtistViewModel>>("artist/GetAll");
             var categories = new ApiClient().GetData<List<CategoryViewModel>>("category/GetAll");
             model.PublishHouses = publishHouses.ToSelectListItems(x => x.Id, x => x.Name);
-            model.Artists = artists.ToSelectListItems(x => x.Id, x => x.Name);
+            model.Artists = artists.ToSelectListItems(x => x.Id, x => x.FullName);
             model.Categories = categories.ToSelectListItems(x => x.Id, x => x.Name);
         }
     }
