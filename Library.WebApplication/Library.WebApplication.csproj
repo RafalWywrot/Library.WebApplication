@@ -140,6 +140,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PublishHouseController.cs" />
+    <Compile Include="Controllers\RentController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -147,10 +148,12 @@
     <Compile Include="Helpers\Extensions.cs" />
     <Compile Include="Models\ArtistViewModel.cs" />
     <Compile Include="Models\BookEditViewModel.cs" />
+    <Compile Include="Models\BookRentViewModel.cs" />
     <Compile Include="Models\BookViewModel.cs" />
     <Compile Include="Models\CategoryViewModel.cs" />
     <Compile Include="Models\DeleteById.cs" />
     <Compile Include="Models\PublishHouseViewModel.cs" />
+    <Compile Include="Models\RentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +205,8 @@
     <Content Include="Views\Book\Index.cshtml" />
     <Content Include="Views\Book\Add.cshtml" />
     <Content Include="Views\Book\Edit.cshtml" />
+    <Content Include="Views\Rent\Index.cshtml" />
+    <Content Include="Views\Rent\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

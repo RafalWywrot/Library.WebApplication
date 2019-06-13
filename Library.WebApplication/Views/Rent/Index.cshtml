@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Library.WebApplication.Models.RentViewModel>
+@{
+    ViewBag.Title = "Wypożyczenia";
+}
+
+<div class="btn-group col mt-10" role="group">
+    <button type="button" onclick="location.href='@Url.Action("Add", "Rent")'" class="btn btn-success btn-lg" aria-haspopup="true" aria-expanded="false">
+        @Html.Name("Nowe")
+        <span class="glyphicon glyphicon-plus" style="padding-left:10px;"></span>
+    </button>
+</div>
+
+<div class="row mt-20">
+    <div class="col-md-12">
+        <table class="table table-responsive">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Book.Title)
+                <th>
+                    @Html.DisplayName("Wydawnictwo")
+                </th>
+                <th>
+                    @Html.DisplayName("Autor")
+                </th>
+                <th>
+                    @Html.DisplayName("Kategoria")
+                </th>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.PublishHouse.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.Artist.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Surname)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Edit", "Book", new { id = item.Id }, FormMethod.Get, new { @class = "" }))
+                        {
+                            <input type="submit" value="Edytuj" class="btn btn-default" />
+                        }
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Delete", "Book", new { id = item.Id }, FormMethod.Post, new { @class = "" }))
+                        {
+                            <input type="submit" value="Usuń" class="btn btn-danger" />
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
