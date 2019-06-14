@@ -1,8 +1,6 @@
 ﻿using Library.WebApplication.Helpers;
 using Library.WebApplication.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace Library.WebApplication.Controllers
@@ -11,21 +9,41 @@ namespace Library.WebApplication.Controllers
     {
         public ActionResult Index()
         {
+            //pobierz wszystkie wypozyczenia
             var rents = new ApiClient().GetData<List<RentViewModel>>("rent/GetAll");
             return View(rents);
         }
         [HttpGet]
         public ActionResult Add()
         {
-            return View();
+            //pobierz wszystkie ksiazki
+            //stworz model z lista tych ksiazek
+            var model = new NewRentViewModel()
+            {
+                Books = new List<BookViewModel>()
+                {
+                    new BookViewModel { Title = "aa" },
+                    new BookViewModel { Title = "aa" },
+                    new BookViewModel { Title = "aa" },
+                }.ToSelectListItems(x => x.Id, x => x.Title),
+            };
+            return View(model);
         }
         [HttpPost]
-        public ActionResult Add(RentViewModel model)
+        public ActionResult Add(NewRentViewModel model)
         {
+            //jesli zostala wybrana ksiazka to wyslij do Api [bookId, name, surname , ...]
             if (!ModelState.IsValid)
                 return View(model);
 
-            new ApiClient().PostData<RentViewModel>("rent/New", model);
+            new ApiClient().PostData<NewRentViewModel>("rent/New", model);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public ActionResult ReturnBook(int bookId)
+        {
+            new ApiClient().PostData<DeleteById>("rent/Remove", new DeleteById() { Id = bookId });
             return RedirectToAction("Index");
         }
     }

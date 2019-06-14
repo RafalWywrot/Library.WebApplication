@@ -58,15 +58,9 @@
                         @Html.DisplayFor(modelItem => item.Surname)
                     </td>
                     <td>
-                        @using (Html.BeginForm("Edit", "Book", new { id = item.Id }, FormMethod.Get, new { @class = "" }))
+                        @using (Html.BeginForm("ReturnBook", "Rent", new { bookId = item.Book.Id }, FormMethod.Post, new { @class = "" }))
                         {
-                            <input type="submit" value="Edytuj" class="btn btn-default" />
-                        }
-                    </td>
-                    <td>
-                        @using (Html.BeginForm("Delete", "Book", new { id = item.Id }, FormMethod.Post, new { @class = "" }))
-                        {
-                            <input type="submit" value="Usuń" class="btn btn-danger" />
+                            <input type="submit" value="Zwróć" class="btn btn-danger" />
                         }
                     </td>
                 </tr>
