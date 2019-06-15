@@ -9,8 +9,10 @@ namespace Library.WebApplication.Models
     public class User
     {
         [Required]
+        [Display(Name = "Imię")]
         public string Name { get; set; }
         [Required]
+        [Display(Name = "Nazwisko")]
         public string Surname { get; set; }
     }
 }

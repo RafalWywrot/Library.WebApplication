@@ -38,6 +38,9 @@ namespace Library.WebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(ArtistViewModel artist)
         {
+            if (!ModelState.IsValid)
+                return View(artist);
+
             new ApiClient().PostData<ArtistViewModel>("artist/Update", artist);
             return RedirectToAction("Index");
         }

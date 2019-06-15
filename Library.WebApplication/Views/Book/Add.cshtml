@@ -35,21 +35,21 @@
         <div class="form-group">
             @Html.LabelFor(x => x.PublishHouseId, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.PublishHouseId, Model.PublishHouses, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.PublishHouseId, Model.PublishHouses, "Wybierz", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PublishHouseId, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.ArtistId, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.ArtistId, Model.Artists, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.ArtistId, Model.Artists, "Wybierz", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ArtistId, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(x => x.CategoryId, new { @class = "col-md-2 control-label" })
             <div class="col-md-10">
-                @Html.DropDownListFor(m => m.CategoryId, Model.Categories, new { @class = "form-control" })
+                @Html.DropDownListFor(m => m.CategoryId, Model.Categories, "Wybierz", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
             </div>
         </div>

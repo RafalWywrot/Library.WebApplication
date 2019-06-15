@@ -11,6 +11,7 @@ namespace Library.WebApplication.Models
     {
         public IEnumerable<SelectListItem> Books { get; set; }
         [Required]
+        [Display(Name = "Książka")]
         public int BookId { get; set; }
     }
 }

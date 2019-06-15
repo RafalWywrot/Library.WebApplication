@@ -9,32 +9,27 @@ namespace Library.WebApplication.Controllers
     {
         public ActionResult Index()
         {
-            //pobierz wszystkie wypozyczenia
             var rents = new ApiClient().GetData<List<RentViewModel>>("rent/GetAll");
             return View(rents);
         }
         [HttpGet]
         public ActionResult Add()
         {
-            //pobierz wszystkie ksiazki
-            //stworz model z lista tych ksiazek
+            var availableBooks = new ApiClient().GetData<List<BookViewModel>>("book/GetAvailableBooks");
             var model = new NewRentViewModel()
             {
-                Books = new List<BookViewModel>()
-                {
-                    new BookViewModel { Title = "aa" },
-                    new BookViewModel { Title = "aa" },
-                    new BookViewModel { Title = "aa" },
-                }.ToSelectListItems(x => x.Id, x => x.Title),
+                Books = availableBooks.ToSelectListItems(x => x.Id, x => x.Title) 
             };
             return View(model);
         }
         [HttpPost]
         public ActionResult Add(NewRentViewModel model)
         {
-            //jesli zostala wybrana ksiazka to wyslij do Api [bookId, name, surname , ...]
             if (!ModelState.IsValid)
+            {
+                model.Books = new ApiClient().GetData<List<BookViewModel>>("book/GetAvailableBooks").ToSelectListItems(x => x.Id, x => x.Title);
                 return View(model);
+            }
 
             new ApiClient().PostData<NewRentViewModel>("rent/New", model);
             return RedirectToAction("Index");

@@ -36,9 +36,12 @@ namespace Library.WebApplication.Controllers
         }
 
         [HttpPost]
-        public ActionResult Edit(PublishHouseViewModel teacher)
+        public ActionResult Edit(PublishHouseViewModel publishHouse)
         {
-            new ApiClient().PostData<PublishHouseViewModel>("publishHouse/Update", teacher);
+            if (!ModelState.IsValid)
+                return View(publishHouse);
+
+            new ApiClient().PostData<PublishHouseViewModel>("publishHouse/Update", publishHouse);
             return RedirectToAction("Index");
         }
 

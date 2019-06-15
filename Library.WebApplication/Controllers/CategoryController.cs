@@ -38,6 +38,9 @@ namespace Library.WebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(CategoryViewModel category)
         {
+            if (!ModelState.IsValid)
+                return View(category);
+
             new ApiClient().PostData<CategoryViewModel>("category/Update", category);
             return RedirectToAction("Index");
         }
