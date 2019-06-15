@@ -9,9 +9,6 @@ namespace Library.WebApplication.Models
     {
         public int Id { get; set; }
         public BookViewModel Book { get; set; }
-        public BookEditViewModel BookEdit { get; set; }
-        public bool Available { get; set; }
         public DateTime? From { get; set; }
-        public DateTime? To { get; set; }
     }
 }

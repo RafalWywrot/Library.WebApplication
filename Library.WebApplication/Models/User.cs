@@ -14,5 +14,7 @@ namespace Library.WebApplication.Models
         [Required]
         [Display(Name = "Nazwisko")]
         public string Surname { get; set; }
+        [Display(Name = "Kontakt")]
+        public string Contact { get; set; }
     }
 }
